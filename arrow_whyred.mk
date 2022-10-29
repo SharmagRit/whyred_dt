@@ -26,6 +26,10 @@ $(call inherit-product, vendor/arrow/config/common.mk)
 # Inherit from whyred device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
+# Bootanimation
+TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 1080
+
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := whyred
 PRODUCT_MANUFACTURER := Xiaomi

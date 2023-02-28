@@ -19,28 +19,35 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
-# Inherit some common Arrow stuff
-ARROW_GAPPS := true
-$(call inherit-product, vendor/arrow/config/common.mk)
+# Inherit some common Lineage stuff
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit from whyred device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-# Bootanimation
-TARGET_SCREEN_WIDTH := 720
-TARGET_SCREEN_HEIGHT := 1080
-
+# Device identifier. This must come after all inclusions.
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := whyred
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := arrow_whyred
+PRODUCT_NAME := lineage_whyred
 PRODUCT_MODEL := Redmi Note 5
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 TARGET_VENDOR_PRODUCT_NAME := whyred
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="whyred-user 8.1.0 OPM1.171019.011 V9.5.11.0.OEIMIFA release-keys"
+# riceDroid Stuff with GApps
+TARGET_ENABLE_PIXEL_GBOARD_PADDINGS := false
+TARGET_SUPPORTS_NEXT_GEN_ASSISTANT := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_USE_PIXEL_FINGERPRINT := true
+TARGET_USE_GOOGLE_TELEPHONY := false
+SUSHI_BOOTANIMATION  := 720
+TARGET_ENABLE_BLUR := true
+WITH_GMS := true
 
-BUILD_FINGERPRINT := xiaomi/whyred/whyred:8.1.0/OPM1.171019.011/V9.5.11.0.OEIMIFA:user/release-keys
+# Maintainer Stuff
+RICE_MAINTAINER := SharmagRit
+RICE_OFFICIAL := true
+RICE_CHIPSET := Snapdragon636
+RICE_PACKAGE_TYPE := Fire
